@@ -15,9 +15,9 @@
     <span><%= book.body %></span>
    </td>
    <td>
-    <%= link_to "Show", "/books" %>
-    <%= link_to "Edit", "/books" %>
-    <%= link_to "Destroy", "/books" %>
+    <%= link_to "Show", book_path(book.id) %>
+    <%= link_to "Edit", edit_book_path(book.id) %>
+    <%= link_to "Destroy", destroy_book_path(book.id), method: :delete, "data-confirm" => "Are you sure?" %>
    </td>
    </tr>
   <% end %>
@@ -32,7 +32,7 @@
  <%= f. text_field :title %>
 
  <h4>body</h4>
- <%= f. text_area :body %> 
+ <%= f. text_area :body %>
 
  <%= f.submit "create Book" %>
 
