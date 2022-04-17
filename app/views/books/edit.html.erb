@@ -1,7 +1,16 @@
 <div class="edit-item">
  <h1 class="h1-edit">Editing Book</h1>
  
- 
+ <% if @book.errors.any? %>
+  <div class="errors-message">
+   <h2 class="h2-errors-message"><%= @book.errors.count %> errors prohibited this book from being saved:</h2>
+   <ul class="errors-list">
+     <% @book.errors.full_messages.each do |message| %>
+      <li class="errors-item"><%= message %></li>
+     <% end %>
+   </ul>
+   </div>
+ <% end %>
  
 
  <%= form_with model: @book, url: update_book_path(@book.id), method: :patch do |f| %>
